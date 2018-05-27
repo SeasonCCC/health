@@ -1,0 +1,18 @@
+.header {
+  padding: 1%;
+  .back {
+    flex: 1;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .title {
+    flex: 8;
+  }
+
+  .tool {
+    flex: 1;
+  }
+}
