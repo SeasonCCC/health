@@ -4,6 +4,10 @@ import './header.scss'
 import back from '@/assets/back.png'
 
 class Header extends React.Component {
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+  }
+
   render () {
     return (
       <div className="header f">
@@ -11,10 +15,10 @@ class Header extends React.Component {
           <img src={back} />
         </div>
         <div className="title f ac jc">
-          HEADER
+          {this.props.title}
         </div>
         <div className="tool f ac jc">
-          save
+          Save
         </div>
       </div>
     );
