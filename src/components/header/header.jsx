@@ -12,7 +12,7 @@ class Header extends React.Component {
     return (
       <div className="header f">
         <div className="back">
-          <img src={back} />
+          <img src={back} alt="" />
         </div>
         <div className="title f ac jc">
           {this.props.title}

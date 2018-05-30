@@ -1,0 +1,22 @@
+.header {
+  padding: 2%;
+  .back {
+    flex: 1;
+
+    img {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+
+  .title {
+    flex: 8;
+    color: #000;
+    font: normal normal bold 1rem Microsoft Yahei;
+  }
+
+  .tool {
+    flex: 1;
+    color: #336ae8;
+  }
+}
