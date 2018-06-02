@@ -2,9 +2,9 @@ import React from 'react'
 import Paper from '@material-ui/core/Paper'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
-import PhoneIcon from '@material-ui/icons/Phone'
-import FavoriteIcon from '@material-ui/icons/Favorite'
-import PersonPinIcon from '@material-ui/icons/PersonPin'
+import Today from '@material-ui/icons/Today'
+import History from '@material-ui/icons/History'
+import ShowChart from '@material-ui/icons/ShowChart'
 import './footer.scss'
 
 export default class IconLabelTabs extends React.Component {
@@ -18,10 +18,10 @@ export default class IconLabelTabs extends React.Component {
 
   render() {
     return (<Paper className="footer">
-      <Tabs value={this.state.value} onChange={this.handleChange} fullWidth="fullWidth" indicatorColor="secondary" textColor="secondary">
-        <Tab icon={<PhoneIcon />} label="RECENTS"/>
-        <Tab icon={<FavoriteIcon />} label="FAVORITES"/>
-        <Tab icon={<PersonPinIcon />} label="NEARBY"/>
+      <Tabs value={this.state.value} onChange={this.handleChange} fullWidth indicatorColor="secondary" textColor="secondary">
+        <Tab icon={<Today />} label="TODAY"/>
+        <Tab icon={<History />} label="HISTORY"/>
+        <Tab icon={<ShowChart />} label="ANALYSIS"/>
       </Tabs>
     </Paper>);
   }
