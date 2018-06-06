@@ -8,11 +8,13 @@ import registerServiceWorker from './registerServiceWorker'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 ReactDOM.render(
-  <div>
-    <Header></Header>
-    <Today></Today>
-    <Footer></Footer>
-  </div>,
+  <Router>
+    <div>
+      <Header></Header>
+      <Today></Today>
+      <Footer></Footer>
+    </div>
+  </Router>,
   document.getElementById('root')
 );
 registerServiceWorker();

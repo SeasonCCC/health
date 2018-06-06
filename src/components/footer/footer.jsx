@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Paper from '@material-ui/core/Paper'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
@@ -9,19 +10,20 @@ import './footer.scss'
 
 export default class IconLabelTabs extends React.Component {
   state = {
-    value: 0
+    value: 'today'
   }
 
   handleChange = (event, value) => {
+    console.log(value)
     this.setState({value});
   }
 
   render() {
     return (<Paper className="footer">
       <Tabs value={this.state.value} onChange={this.handleChange} fullWidth indicatorColor="secondary" textColor="secondary">
-        <Tab icon={<Today />} label="TODAY"/>
-        <Tab icon={<History />} label="HISTORY"/>
-        <Tab icon={<ShowChart />} label="ANALYSIS"/>
+        <Tab value="today" icon={<Today />} label="TODAY" component={Link} to="/about" />
+        <Tab value="history" icon={<History />} label="HISTORY"/>
+        <Tab value="analysis" icon={<ShowChart />} label="ANALYSIS"/>
       </Tabs>
     </Paper>);
   }
