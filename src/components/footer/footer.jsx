@@ -14,16 +14,15 @@ export default class IconLabelTabs extends React.Component {
   }
 
   handleChange = (event, value) => {
-    console.log(value)
     this.setState({value});
   }
 
   render() {
     return (<Paper className="footer">
       <Tabs value={this.state.value} onChange={this.handleChange} fullWidth indicatorColor="secondary" textColor="secondary">
-        <Tab value="today" icon={<Today />} label="TODAY" component={Link} to="/about" />
-        <Tab value="history" icon={<History />} label="HISTORY"/>
-        <Tab value="analysis" icon={<ShowChart />} label="ANALYSIS"/>
+        <Tab value="today" icon={<Today />} label="TODAY" component={Link} to="/" />
+        <Tab value="history" icon={<History />} label="HISTORY" component={Link} to="/history" />
+        <Tab value="analysis" icon={<ShowChart />} label="ANALYSIS" component={Link} to="/analysis" />
       </Tabs>
     </Paper>);
   }
