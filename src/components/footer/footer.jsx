@@ -8,6 +8,7 @@ import Today from '@material-ui/icons/Today'
 import History from '@material-ui/icons/History'
 import ShowChart from '@material-ui/icons/ShowChart'
 import './footer.scss'
+import {observer} from 'mobx-react'
 
 const styles = {
   selected: {
@@ -15,13 +16,15 @@ const styles = {
   }
 }
 
+@observer
 class Footer extends React.Component {
   state = {
-    value: 'today',
+    value: 'Today',
   };
 
   handleChange = (event, value) => {
     this.setState({ value });
+    this.props.store.changeTodoTitle(value)
   };
 
   render() {
@@ -30,9 +33,9 @@ class Footer extends React.Component {
 
     return (
       <BottomNavigation value={value} onChange={this.handleChange} className="footer">
-        <BottomNavigationAction classes={{selected: classes.selected}} value="today" icon={<Today />} label="TODAY" component={Link} to="/" replace />
-        <BottomNavigationAction classes={{selected: classes.selected}} value="history" icon={<History />} label="HISTORY" component={Link} to="/history" replace />
-        <BottomNavigationAction classes={{selected: classes.selected}} value="analysis" icon={<ShowChart />} label="ANALYSIS" component={Link} to="/analysis" replace />
+        <BottomNavigationAction classes={{selected: classes.selected}} value="Today" icon={<Today />} label="TODAY" component={Link} to="/" replace />
+        <BottomNavigationAction classes={{selected: classes.selected}} value="History" icon={<History />} label="HISTORY" component={Link} to="/history" replace />
+        <BottomNavigationAction classes={{selected: classes.selected}} value="Analysis" icon={<ShowChart />} label="ANALYSIS" component={Link} to="/analysis" replace />
       </BottomNavigation>
     );
   }

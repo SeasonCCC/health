@@ -4,6 +4,7 @@ import {withStyles} from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
+import {observer} from 'mobx-react'
 
 const styles = {
   root: {
@@ -11,21 +12,28 @@ const styles = {
   }
 }
 
-function SimpleAppBar(props) {
-  const {classes} = props
-  return (<div className={classes.root}>
-    <AppBar position="static" color="default">
-      <Toolbar>
-        <Typography variant="title" color="inherit">
-          Title
-        </Typography>
-      </Toolbar>
-    </AppBar>
-  </div>);
+@observer
+class Header extends React.Component {
+  render() {
+    const {classes} = this.props
+    return (<div className={classes.root}>
+      <AppBar position="static" color="default">
+        <Toolbar>
+          <Typography variant="title" color="inherit">
+            {this.props.store.todos[0].title}
+          </Typography>
+        </Toolbar>
+      </AppBar>
+    </div>);
+  }
 }
 
-SimpleAppBar.propTypes = {
+// function SimpleAppBar(props) {
+//
+// }
+
+Header.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(SimpleAppBar)
+export default withStyles(styles)(Header)
