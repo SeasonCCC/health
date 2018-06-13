@@ -4,7 +4,7 @@ import {withStyles} from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
-import {observer} from 'mobx-react'
+import { observer , inject } from 'mobx-react'
 
 const styles = {
   root: {
@@ -12,6 +12,7 @@ const styles = {
   }
 }
 
+@inject('store')
 @observer
 class Header extends React.Component {
   render() {

@@ -8,7 +8,7 @@ import Today from '@material-ui/icons/Today'
 import History from '@material-ui/icons/History'
 import ShowChart from '@material-ui/icons/ShowChart'
 import './footer.scss'
-import {observer} from 'mobx-react'
+import { observer , inject } from 'mobx-react'
 
 const styles = {
   selected: {
@@ -16,6 +16,7 @@ const styles = {
   }
 }
 
+@inject('store')
 @observer
 class Footer extends React.Component {
   state = {
