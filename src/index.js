@@ -17,7 +17,7 @@ ReactDOM.render(
   <HashRouter>
     <Provider store={store}>
       <div>
-        <Header></Header>
+        {/*<Header></Header>*/}
           <Switch>
            <Route path="/" exact component={Today} />
            <Route path="/history" component={History} />

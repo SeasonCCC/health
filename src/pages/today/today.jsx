@@ -53,47 +53,41 @@ const MenuProps = {
   }
 };
 
-const names = [
-  'Oliver Hansen',
-  'Van Henry',
-  'April Tucker',
-  'Ralph Hubbard',
-  'Omar Alexander',
-  'Carlos Abbott',
-  'Miriam Wagner',
-  'Bradley Wilkerson',
-  'Virginia Andrews',
-  'Kelly Snyder'
+const moodArr = [
+  'Excellent',
+  'Good',
+  'Not bad',
+  'Bad',
+  'Terrible'
 ];
 
 class Today extends React.Component {
   state = {
-    name: [],
+    mood: 'Not bad',
   };
 
   handleChange = event => {
-    this.setState({ name: event.target.value });
+    this.setState({ mood: event.target.value });
   };
 
   render() {
     const {classes, theme} = this.props
-    console.log(theme)
     return (<div className="App">
       <List component="nav">
         <ListItem>
           <Avatar className={classes.pinkAvatar}>
             <FavoriteIcon/>
           </Avatar>
+          <ListItemText primary="Your Mood" />
           <FormControl className={classes.formControl}>
-            <InputLabel htmlFor="select-multiple">Name</InputLabel>
-            <Select value={this.state.name} onChange={this.handleChange} input={<Input id = "select-multiple" />} MenuProps={MenuProps}>
+            <Select value={this.state.mood} onChange={this.handleChange} input={<Input id = "select-multiple" />} MenuProps={MenuProps}>
               {
-                names.map(name => (<MenuItem key={name} value={name} style={{
-                    fontWeight: this.state.name.indexOf(name) === -1
+                moodArr.map(mood => (<MenuItem key={mood} value={mood} style={{
+                    fontWeight: this.state.mood.indexOf(mood) === -1
                       ? theme.typography.fontWeightRegular
                       : theme.typography.fontWeightMedium
                   }}>
-                  {name}
+                  {mood}
                 </MenuItem>))
               }
             </Select>
