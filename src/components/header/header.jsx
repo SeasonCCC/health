@@ -14,6 +14,7 @@ const styles = {
 
 @inject('store')
 @observer
+@withStyles(styles)
 class Header extends React.Component {
   render() {
     const {classes} = this.props
@@ -37,4 +38,4 @@ Header.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Header)
+export default Header

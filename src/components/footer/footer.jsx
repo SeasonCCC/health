@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom'
 import BottomNavigation from '@material-ui/core/BottomNavigation'
@@ -18,6 +18,7 @@ const styles = {
 
 @inject('store')
 @observer
+@withStyles(styles)
 class Footer extends React.Component {
   state = {
     value: 'Today',
@@ -42,8 +43,8 @@ class Footer extends React.Component {
   }
 }
 
-Footer.propTypes = {
-  classes: PropTypes.object.isRequired,
-}
+// Footer.propTypes = {
+//   classes: PropTypes.object.isRequired,
+// }
 
-export default withStyles(styles)(Footer)
+export default Footer
