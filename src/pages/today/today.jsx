@@ -8,21 +8,25 @@ import indigo from '@material-ui/core/colors/indigo'
 
 import Avatar from '@material-ui/core/Avatar'
 import List from '@material-ui/core/List'
+import ListSubheader from '@material-ui/core/ListSubheader'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import Divider from '@material-ui/core/Divider'
 
-import Input from '@material-ui/core/Input';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+import Input from '@material-ui/core/Input'
+import TextField from '@material-ui/core/TextField'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import AccessibilityIcon from '@material-ui/icons/Accessibility'
+import MenuItem from '@material-ui/core/MenuItem'
+import FormControl from '@material-ui/core/FormControl'
+import Select from '@material-ui/core/Select'
 
-import MoodIcon from '@material-ui/icons/Mood';
-import WorkIcon from '@material-ui/icons/Work';
-import LocalCafeIcon from '@material-ui/icons/LocalCafe';
-import Brightness2Icon from '@material-ui/icons/Brightness2';
+// import MoodIcon from '@material-ui/icons/Mood'
+import WorkIcon from '@material-ui/icons/Work'
+import LocalCafeIcon from '@material-ui/icons/LocalCafe'
+import Brightness2Icon from '@material-ui/icons/Brightness2'
 
-// import Select from '@/components/select/select'
+import DailyLife from '@/components/dailyLife/dailyLife'
 import './today.scss'
 
 const styles = theme => ({
@@ -104,27 +108,22 @@ class Today extends React.Component {
   render() {
     const {classes, theme} = this.props
     return (<div className="App">
-      <List component="nav">
+      <DailyLife></DailyLife>
+      <List subheader={<ListSubheader disableSticky>Body Check</ListSubheader>}>
         <ListItem>
-          <Avatar className={classes.pinkAvatar}>
-            <MoodIcon/>
-          </Avatar>
-          <ListItemText classes={{
-              primary: classes.primary
-            }} primary="Mood"/>
-          <FormControl className={classes.formControl}>
-            <Select value={this.state.mood} onChange={this.handleChange.bind(this, 'mood')} input={<Input id = "select-multiple" />} MenuProps={MenuProps}>
-              {
-                selectObj.mood.map(mood => (<MenuItem key={mood} value={mood} style={{
-                    fontWeight: this.state.mood.indexOf(mood) === -1
-                      ? theme.typography.fontWeightRegular
-                      : theme.typography.fontWeightMedium
-                  }}>
-                  {mood}
-                </MenuItem>))
-              }
-            </Select>
-          </FormControl>
+          <TextField
+            className={classes.margin}
+            id="input-with-icon-textfield"
+            placeholder="Weight"
+            fullWidth
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <AccessibilityIcon />
+                </InputAdornment>
+              ),
+            }}
+          />
         </ListItem>
 
         <Divider/>
@@ -199,6 +198,7 @@ class Today extends React.Component {
           </FormControl>
         </ListItem>
       </List>
+
     </div>)
   }
 }
