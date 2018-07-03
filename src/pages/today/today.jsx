@@ -1,98 +1,12 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
-import {withStyles} from '@material-ui/core/styles'
-import pink from '@material-ui/core/colors/pink'
-import blue from '@material-ui/core/colors/blue'
-import brown from '@material-ui/core/colors/brown'
-import indigo from '@material-ui/core/colors/indigo'
+// import {withStyles} from '@material-ui/core/styles'
+// import Divider from '@material-ui/core/Divider'
 
-import Avatar from '@material-ui/core/Avatar'
-import List from '@material-ui/core/List'
-import ListSubheader from '@material-ui/core/ListSubheader'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
-import Divider from '@material-ui/core/Divider'
-
-import Input from '@material-ui/core/Input'
-import TextField from '@material-ui/core/TextField'
-import InputAdornment from '@material-ui/core/InputAdornment'
-import AccessibilityIcon from '@material-ui/icons/Accessibility'
-import MenuItem from '@material-ui/core/MenuItem'
-import FormControl from '@material-ui/core/FormControl'
-import Select from '@material-ui/core/Select'
-
-// import MoodIcon from '@material-ui/icons/Mood'
-import WorkIcon from '@material-ui/icons/Work'
-import LocalCafeIcon from '@material-ui/icons/LocalCafe'
-import Brightness2Icon from '@material-ui/icons/Brightness2'
-
+import BodyCheck from '@/components/bodyCheck/bodyCheck'
 import DailyLife from '@/components/dailyLife/dailyLife'
 import './today.scss'
 
-const styles = theme => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap'
-  },
-  formControl: {
-    margin: theme.spacing.unit,
-    minWidth: 120,
-    maxWidth: 300
-  },
-  chips: {
-    display: 'flex',
-    flexWrap: 'wrap'
-  },
-  chip: {
-    margin: theme.spacing.unit / 4
-  },
-  primary: {
-    fontSize: '1.2rem',
-    fontWeight: 'bold'
-  },
-  pinkAvatar: {
-    color: '#fff',
-    backgroundColor: pink[500]
-  },
-  blueAvatar: {
-    color: '#fff',
-    backgroundColor: blue[500]
-  },
-  brownAvatar: {
-    color: '#fff',
-    backgroundColor: brown[500]
-  },
-  indigoAvatar: {
-    color: '#fff',
-    backgroundColor: indigo[500]
-  }
-});
-
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250
-    }
-  }
-};
-
-const selectObj = {
-  mood: [
-    'Excellent', 'Good', 'Not bad', 'Bad', 'Terrible'
-  ],
-  work: [
-    'Rewarding', 'Satisfying', 'Mundane', 'Stressful', 'Boring'
-  ],
-  diet: [
-    'Delicious', 'Satisfying', 'Common', 'Not enough', 'Terrible'
-  ],
-  sleep: ['Excellent', 'Good', 'Not bad', 'Bad', 'Terrible']
-}
-
-@withStyles(styles, {withTheme: true})
 class Today extends React.Component {
   state = {
     mood: 'Not bad',
@@ -106,99 +20,10 @@ class Today extends React.Component {
   };
 
   render() {
-    const {classes, theme} = this.props
+    // const {classes, theme} = this.props
     return (<div className="App">
       <DailyLife></DailyLife>
-      <List subheader={<ListSubheader disableSticky>Body Check</ListSubheader>}>
-        <ListItem>
-          <TextField
-            className={classes.margin}
-            id="input-with-icon-textfield"
-            placeholder="Weight"
-            fullWidth
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <AccessibilityIcon />
-                </InputAdornment>
-              ),
-            }}
-          />
-        </ListItem>
-
-        <Divider/>
-
-        <ListItem>
-          <Avatar className={classes.blueAvatar}>
-            <WorkIcon/>
-          </Avatar>
-          <ListItemText classes={{
-              primary: classes.primary
-            }} primary="Work"/>
-          <FormControl className={classes.formControl}>
-            <Select value={this.state.work} onChange={this.handleChange.bind(this, 'work')} input={<Input id = "select-multiple" />} MenuProps={MenuProps}>
-              {
-                selectObj.work.map(work => (<MenuItem key={work} value={work} style={{
-                    fontWeight: this.state.work.indexOf(work) === -1
-                      ? theme.typography.fontWeightRegular
-                      : theme.typography.fontWeightMedium
-                  }}>
-                  {work}
-                </MenuItem>))
-              }
-            </Select>
-          </FormControl>
-        </ListItem>
-
-        <Divider/>
-
-        <ListItem>
-          <Avatar className={classes.brownAvatar}>
-            <LocalCafeIcon/>
-          </Avatar>
-          <ListItemText classes={{
-              primary: classes.primary
-            }} primary="Diet"/>
-          <FormControl className={classes.formControl}>
-            <Select value={this.state.diet} onChange={this.handleChange.bind(this, 'diet')} input={<Input id = "select-multiple" />} MenuProps={MenuProps}>
-              {
-                selectObj.diet.map(diet => (<MenuItem key={diet} value={diet} style={{
-                    fontWeight: this.state.diet.indexOf(diet) === -1
-                      ? theme.typography.fontWeightRegular
-                      : theme.typography.fontWeightMedium
-                  }}>
-                  {diet}
-                </MenuItem>))
-              }
-            </Select>
-          </FormControl>
-        </ListItem>
-
-        <Divider/>
-
-        <ListItem>
-          <Avatar className={classes.indigoAvatar}>
-            <Brightness2Icon/>
-          </Avatar>
-          <ListItemText classes={{
-              primary: classes.primary
-            }} primary="Sleep"/>
-          <FormControl className={classes.formControl}>
-            <Select value={this.state.sleep} onChange={this.handleChange.bind(this, 'sleep')} input={<Input id = "select-multiple" />} MenuProps={MenuProps}>
-              {
-                selectObj.sleep.map(sleep => (<MenuItem key={sleep} value={sleep} style={{
-                    fontWeight: this.state.diet.indexOf(sleep) === -1
-                      ? theme.typography.fontWeightRegular
-                      : theme.typography.fontWeightMedium
-                  }}>
-                  {sleep}
-                </MenuItem>))
-              }
-            </Select>
-          </FormControl>
-        </ListItem>
-      </List>
-
+      <BodyCheck></BodyCheck>
     </div>)
   }
 }
