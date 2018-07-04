@@ -10,8 +10,8 @@ import ListItem from '@material-ui/core/ListItem'
 
 import TextField from '@material-ui/core/TextField'
 import InputAdornment from '@material-ui/core/InputAdornment'
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import Switch from '@material-ui/core/Switch';
 
 import Brightness3Icon from '@material-ui/icons/Brightness3'
 import WorkIcon from '@material-ui/icons/Work'
@@ -38,22 +38,19 @@ const styles = theme => ({
   primary: {
     fontSize: '1.2rem',
     fontWeight: 'bold'
-  },
-  mb: {
-    marginBottom: '56px'
   }
 });
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
+// const ITEM_HEIGHT = 48;
+// const ITEM_PADDING_TOP = 8;
+// const MenuProps = {
+//   PaperProps: {
+//     style: {
+//       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+//       width: 250,
+//     },
+//   },
+// };
 
 @withStyles(styles, {withTheme: true})
 class BodyCheck extends React.Component {
@@ -69,10 +66,10 @@ class BodyCheck extends React.Component {
   };
 
   render() {
-    const { classes, theme } = this.props;
+    const { classes } = this.props;
     return (
-      <div className={classes.mb}>
-        <List subheader={<ListSubheader disableSticky>Body Check</ListSubheader>}>
+      <div>
+        <List subheader={<ListSubheader className="b" disableSticky>Body Check</ListSubheader>}>
           <ListItem>
             <TextField
               className={classes.margin}
