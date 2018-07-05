@@ -18,7 +18,7 @@ ReactDOM.render(
     <Provider store={store}>
       <div>
         {/*<Header></Header>*/}
-          <Switch>
+        <Switch>
            <Route path="/" exact component={Today} />
            <Route path="/history" component={History} />
            <Route path="/analysis" component={Analysis} />

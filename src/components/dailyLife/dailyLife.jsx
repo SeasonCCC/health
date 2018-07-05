@@ -113,15 +113,15 @@ class DailyLife extends React.Component {
             </Avatar>
             <ListItemText classes={{
                 primary: classes.primary
-              }} primary="Mood"/>
+            }} primary="Mood"/>
             <FormControl className={classes.formControl}>
               <Select value={this.state.mood} onChange={this.handleChange.bind(this, 'mood')} input={<Input id = "select-multiple" />} MenuProps={MenuProps}>
                 {
                   selectObj.mood.map(mood => (<MenuItem key={mood} value={mood} style={{
-                      fontWeight: this.state.mood.indexOf(mood) === -1
-                        ? theme.typography.fontWeightRegular
-                        : theme.typography.fontWeightMedium
-                    }}>
+                    fontWeight: this.state.mood.indexOf(mood) === -1
+                      ? theme.typography.fontWeightRegular
+                      : theme.typography.fontWeightMedium
+                  }}>
                     {mood}
                   </MenuItem>))
                 }
