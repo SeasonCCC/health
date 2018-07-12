@@ -1,5 +1,6 @@
 import React from 'react'
 import { DatePicker } from 'material-ui-pickers'
+import './history.scss'
 // import PropTypes from 'prop-types'
 
 class History extends React.Component {
