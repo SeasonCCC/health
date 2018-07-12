@@ -18,7 +18,7 @@ const styles = theme => ({
 @withStyles(styles, {withTheme: true})
 class Today extends React.Component {
   render() {
-    const {classes, theme} = this.props
+    const {classes} = this.props
     return (<div className="App">
       <DailyLife></DailyLife>
       <BodyCheck></BodyCheck>

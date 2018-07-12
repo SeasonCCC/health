@@ -11,20 +11,23 @@ import {HashRouter, Route, Switch} from 'react-router-dom'
 import { Provider } from 'mobx-react'
 import Store from './store/index'
 
+import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider'
+import DateFnsUtils from 'material-ui-pickers/utils/date-fns-utils'
+
 const store = new Store()
 
 ReactDOM.render(
   <HashRouter>
     <Provider store={store}>
-      <div>
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
         {/*<Header></Header>*/}
         <Switch>
-           <Route path="/" exact component={Today} />
-           <Route path="/history" component={History} />
-           <Route path="/analysis" component={Analysis} />
-         </Switch>
+          <Route path="/" exact component={Today} />
+          <Route path="/history" component={History} />
+          <Route path="/analysis" component={Analysis} />
+        </Switch>
         <Footer></Footer>
-      </div>
+      </MuiPickersUtilsProvider>
     </Provider>
   </HashRouter>
 , document.getElementById('root'));
