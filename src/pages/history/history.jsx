@@ -10,6 +10,9 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import Divider from '@material-ui/core/Divider'
 
+import BodyCheck from '@/components/bodyCheck/bodyCheck'
+import DailyLife from '@/components/dailyLife/dailyLife'
+
 import DateRangeIcon from '@material-ui/icons/DateRange'
 import './history.scss'
 
@@ -58,6 +61,8 @@ class History extends React.Component {
           </ListItem>
         </List>
         <Divider />
+        <DailyLife select="false"></DailyLife>
+        <BodyCheck></BodyCheck>
       </div>
     );
   }

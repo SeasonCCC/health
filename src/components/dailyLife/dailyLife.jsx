@@ -89,6 +89,10 @@ const selectObj = {
 
 @withStyles(styles, {withTheme: true})
 class DailyLife extends React.Component {
+  static defaultProps={
+    select: 'true',
+  }
+
   state = {
     mood: 'Not bad',
     work: 'Satisfying',
@@ -100,35 +104,46 @@ class DailyLife extends React.Component {
     this.setState({[type]: event.target.value});
   };
 
+  renderSelect() {
+    let { classes, select, theme } = this.props;
+    console.log(this.props.select)
+    return (
+      <ListItem>
+        <Avatar className={classes.pinkAvatar}>
+          <MoodIcon/>
+        </Avatar>
+        <ListItemText classes={{
+            primary: classes.primary
+        }} primary="Mood"/>
+
+        { this.props.select ?
+          <FormControl className={classes.formControl}>
+            <Select value={this.state.mood} onChange={this.handleChange.bind(this, 'mood')} input={<Input id = "select-multiple" />} MenuProps={MenuProps}>
+              {
+                selectObj.mood.map(mood => (<MenuItem key={mood} value={mood} style={{
+                  fontWeight: this.state.mood.indexOf(mood) === -1
+                    ? theme.typography.fontWeightRegular
+                    : theme.typography.fontWeightMedium
+                }}>
+                  {mood}
+                </MenuItem>))
+              }
+            </Select>
+          </FormControl>
+          :
+          <ListItemText primary="Drafts" />
+        }
+
+      </ListItem>
+    )
+  };
 
   render() {
-    const { classes, theme } = this.props;
-
+    const { classes, select, theme } = this.props;
     return (
       <div>
         <List subheader={<ListSubheader disableSticky>Daily Life</ListSubheader>}>
-          <ListItem>
-            <Avatar className={classes.pinkAvatar}>
-              <MoodIcon/>
-            </Avatar>
-            <ListItemText classes={{
-                primary: classes.primary
-            }} primary="Mood"/>
-            <FormControl className={classes.formControl}>
-              <Select value={this.state.mood} onChange={this.handleChange.bind(this, 'mood')} input={<Input id = "select-multiple" />} MenuProps={MenuProps}>
-                {
-                  selectObj.mood.map(mood => (<MenuItem key={mood} value={mood} style={{
-                    fontWeight: this.state.mood.indexOf(mood) === -1
-                      ? theme.typography.fontWeightRegular
-                      : theme.typography.fontWeightMedium
-                  }}>
-                    {mood}
-                  </MenuItem>))
-                }
-              </Select>
-            </FormControl>
-          </ListItem>
-
+          {this.renderSelect()}
           <Divider inset/>
 
           <ListItem>
