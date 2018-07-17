@@ -61,7 +61,7 @@ class History extends React.Component {
           </ListItem>
         </List>
         <Divider />
-        <DailyLife select="false"></DailyLife>
+        <DailyLife select={false}></DailyLife>
         <BodyCheck></BodyCheck>
       </div>
     );
